@@ -44,6 +44,7 @@ public class MethodIndyProtector extends MethodVisitor implements Opcodes {
         for (int i = 0; i < args.length; i++) {
             args[i] = genericType(args[i]);
         }
+        newSig = Type.getMethodDescriptor(origReturnType, args);
         switch (opcode) {
             case INVOKESTATIC: // invokestatic opcode
             case INVOKEVIRTUAL: // invokevirtual opcode
